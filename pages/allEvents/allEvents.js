@@ -20,6 +20,7 @@ const tablerows = events.map(event => `
     <td>${event.name}</td>
     <td>${event.date.substring(0, 10)}</td>
     <td>${event.description}</td>
+    <td>${event.ticketsLeft}</td>
 </tr>`).join("")
 
 document.querySelector("#table-rows").innerHTML = sanitizeStringWithTableRows(tablerows)

@@ -11,6 +11,7 @@ import { initAddEvent } from "./pages/addEvent/addEvent.js"
 import { initFindEditEvent } from "./pages/findEditEvent/findEditEvent.js";
 import { initAddAttendee } from "./pages/addAttendee/addAttendee.js";
 import { initSignUpEvent } from "./pages/signupEvent/signupEvent.js";
+import { initMyEvents } from "./pages/myEvents/myEvents.js";
 
 window.addEventListener("load", async () => {
 
@@ -20,6 +21,7 @@ window.addEventListener("load", async () => {
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
   const templateAddAttendee = await loadHtml("./pages/addAttendee/addAttendee.html")
   const templateSignUpEvent = await loadHtml("./pages/signupEvent/signupEvent.html")
+  const templateMyEvents = await loadHtml("./pages/myEvents/myEvents.html")
   
   adjustForMissingHash()
 
@@ -37,7 +39,7 @@ window.addEventListener("load", async () => {
     .on({
       //For very simple "templates", you can just insert your HTML directly like below
       "/": () => document.getElementById("content").innerHTML = `
-        <h2>Welcome to the future of events!</h2>
+        <h2>Welcome to the future of free events!</h2>
      `,
       "/events": () => {
         renderTemplate(templateAllEvents, "content")
@@ -46,6 +48,10 @@ window.addEventListener("load", async () => {
       "/find-edit-event": (match) => {
         renderTemplate(templateFindEditEvent, "content")
         initFindEditEvent()
+      },
+      "/myEvents": (match) => {
+        renderTemplate(templateMyEvents, "content")
+        initMyEvents()
       },
       "/add-attendee": (match) => {
         renderTemplate(templateAddAttendee, "content")

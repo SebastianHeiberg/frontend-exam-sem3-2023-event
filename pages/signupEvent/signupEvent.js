@@ -23,7 +23,7 @@ const tablerows = events.map(event => `
     <td>${event.name}</td>
     <td>${event.date.substring(0, 10)}</td>
     <td>${event.description}</td>
-    <td>Not many</td>
+    <td>${event.ticketsLeft}</td>
     <td><button id="btn_${event.id}" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#booking-modal">Book ticket</button></td></tr>
 </tr>`).join("")
 
