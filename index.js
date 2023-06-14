@@ -9,6 +9,8 @@ import {
 import { initAllEvents } from "./pages/allEvents/allEvents.js"
 import { initAddEvent } from "./pages/addEvent/addEvent.js"
 import { initFindEditEvent } from "./pages/findEditEvent/findEditEvent.js";
+import { initAddAttendee } from "./pages/addAttendee/addAttendee.js";
+import { initSignUpEvent } from "./pages/signupEvent/signupEvent.js";
 
 window.addEventListener("load", async () => {
 
@@ -16,6 +18,8 @@ window.addEventListener("load", async () => {
   const templateAddEvent = await loadHtml("./pages/addEvent/addEvent.html")
   const templateFindEditEvent = await loadHtml("./pages/findEditEvent/findEditEvent.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
+  const templateAddAttendee = await loadHtml("./pages/addAttendee/addAttendee.html")
+  const templateSignUpEvent = await loadHtml("./pages/signupEvent/signupEvent.html")
   
   adjustForMissingHash()
 
@@ -42,6 +46,14 @@ window.addEventListener("load", async () => {
       "/find-edit-event": (match) => {
         renderTemplate(templateFindEditEvent, "content")
         initFindEditEvent()
+      },
+      "/add-attendee": (match) => {
+        renderTemplate(templateAddAttendee, "content")
+        initAddAttendee()
+      },
+      "/signupEvent": (match) => {
+        renderTemplate(templateSignUpEvent, "content")
+        initSignUpEvent() 
       },
       "/add-event": (match) => {
         renderTemplate(templateAddEvent, "content")

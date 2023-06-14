@@ -1,0 +1,52 @@
+<div class="template">
+    <h2>Find your next event here</dt>
+    </h2>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Tickets left</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="table-rows">
+      </tbody >
+    </table>
+    <p id="error" style="color:red"></p>
+   
+    <!-- Modal -->
+  <div class="modal fade" id="booking-modal" tabindex="-1" aria-labelledby="booking-modal-label"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="reservation-modal-label">Book your ticker here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="event-username">Username</label>
+            </div>
+            <div class="col-md-9">
+              <input id="event-username" type="text" placeholder="Enter username here">
+            </div>
+          </div>
+          <input readonly hidden id="modal-event-id"/>
+        </div>
+        <br />
+        <p id="status">&nbsp;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="btn-book" type="button" class="btn btn-primary">Book ticket</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
