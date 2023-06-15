@@ -5,7 +5,7 @@ import { handleHttpErrors, makeOptions, sanitizeStringWithTableRows } from "../.
 
 
 export async function initMyEvents() {
-    document.querySelector("#btn-fetch-my-events").onclick = loadMyEvents
+    loadMyEvents()
     document.querySelector("#table-rows").onclick = setupCancelModal
     document.querySelector("#btn-cancel-ticket").onclick = canselBooking
 
@@ -14,8 +14,7 @@ export async function initMyEvents() {
 async function loadMyEvents() {
 
 const options = makeOptions("GET",null,true)
-const username = document.querySelector("#my-username").value
-const reservationsurl = API_URL + `/attendeeEvent/${username}`
+const reservationsurl = API_URL + `/attendeeEvent`
 
 try{
 const events = await fetch(reservationsurl,options).then(handleHttpErrors)
@@ -42,9 +41,7 @@ async function setupCancelModal(evt) {
     const target = evt.target
     const parts = target.id.split("_");
     const id = parts[1]
-    const username = document.querySelector("#my-username").value
     document.querySelector("#event-id").value = id
-    document.querySelector("#attendece-username").value = username
     document.querySelector("#keep-ticket").textContent = "Keep ticket"
 
 }
@@ -52,15 +49,15 @@ async function setupCancelModal(evt) {
 
 async function canselBooking(evt){
     evt.preventDefault()
-    const username = document.querySelector("#event-id").value
-    const eventId = document.querySelector("#attendece-username").value    
+    const eventId = document.querySelector("#event-id").value
 
-    const reservationsurl = API_URL + `/attendeeEvent/${eventId}/${username}`
+    const reservationsurl = API_URL + `/attendeeEvent/${eventId}`
     const options = {
         method: "Delete",
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        "Authorization": "Bearer " + localStorage.getItem("token")
         }}
      
     try{ 

@@ -27,7 +27,7 @@
         <ul id="menu" class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="/" data-navigo>Home</a></li>
           
-            <li class="nav-item dropdown" id="for-admin-event">
+            <li class="nav-item dropdown" id="for-admin-event" style="display: none;">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Manage events (Admin)
@@ -38,22 +38,22 @@
               </ul>
             </li>
           
-            <li class="nav-item dropdown" id="for-user-event">
+            <li class="nav-item dropdown" id="for-user-event" style="display: none;">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Manage events (User)
               </a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/signupEvent" data-navigo>Sign up event</a></li>
+                <li><a class="dropdown-item" href="/signupEvent" data-navigo >Sign up event</a></li>
                 <li><a class="dropdown-item" href="/myEvents" data-navigo>My Events</a></li>
               </ul>
             </li>
 
         
-            <li class="nav-item"><a class="nav-link" href="/events" data-navigo>All Events</a></li>
-            <li class="nav-item"><a class="nav-link" href="/add-attendee" data-navigo>Sign up</a></li>
-            <li class="nav-item"><a class="nav-link" href="/login" data-navigo>Log in</a></li>
-            <li id="logout-id" class="nav-item" ><a class="nav-link" href="/logout" data-navigo>Logout</a></li>
+            <li id="allevents-link"class="nav-item"><a class="nav-link" href="/events" data-navigo style="display: block;">All Events</a></li>
+            <li id="signup-link"class="nav-item"><a class="nav-link" href="/add-attendee" data-navigo style="display: block;">Sign up</a></li>
+            <li id="login-link"class="nav-item"><a class="nav-link" href="/login" data-navigo style="display: block;">Log in</a></li>
+            <li id="logout-link" style="display: none;" class="nav-item" ><a class="nav-link" href="/logout" data-navigo >Logout</a></li>
 
          
           </ul>
