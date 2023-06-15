@@ -22,6 +22,7 @@ async function addEvent(evt){
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        "Authorization": "Bearer " + localStorage.getItem("token")
         },
         body: JSON.stringify(event)
      }
@@ -29,9 +30,11 @@ async function addEvent(evt){
    
     try{
     await fetch(URL,options).then(handleHttpErrors)
+    document.querySelector("#status").innerText = "New event added"
+    document.querySelector("#form").reset()
+
     } catch (err){
         document.querySelector("#status").innerText = err.message
     }
-    document.querySelector("#form").reset()
-    document.querySelector("#status").innerText = "New event added"
+    
 }

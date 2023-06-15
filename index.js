@@ -12,6 +12,7 @@ import { initFindEditEvent } from "./pages/findEditEvent/findEditEvent.js";
 import { initAddAttendee } from "./pages/addAttendee/addAttendee.js";
 import { initSignUpEvent } from "./pages/signupEvent/signupEvent.js";
 import { initMyEvents } from "./pages/myEvents/myEvents.js";
+import { initLogin, logout } from "./pages/login/login.js";
 
 window.addEventListener("load", async () => {
 
@@ -22,6 +23,7 @@ window.addEventListener("load", async () => {
   const templateAddAttendee = await loadHtml("./pages/addAttendee/addAttendee.html")
   const templateSignUpEvent = await loadHtml("./pages/signupEvent/signupEvent.html")
   const templateMyEvents = await loadHtml("./pages/myEvents/myEvents.html")
+  const templateLogin = await loadHtml("./pages/login/login.html")
   
   adjustForMissingHash()
 
@@ -60,6 +62,13 @@ window.addEventListener("load", async () => {
       "/signupEvent": (match) => {
         renderTemplate(templateSignUpEvent, "content")
         initSignUpEvent() 
+      },
+      "/login": (match) => {
+        renderTemplate(templateLogin, "content")
+        initLogin() 
+      },"/logout": () => {
+        renderTemplate(templateLogin, "content")
+        logout()
       },
       "/add-event": (match) => {
         renderTemplate(templateAddEvent, "content")

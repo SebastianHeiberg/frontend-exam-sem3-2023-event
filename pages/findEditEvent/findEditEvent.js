@@ -13,7 +13,7 @@ export function initFindEditEvent(){
 
 async function getEvent () {
     const event_id = document.querySelector("#event-id-input").value
-    const options = makeOptions("GET",null,false)
+    const options = makeOptions("GET",null,true)
     const safeId = encode(event_id)
     try{
     const event = await fetch(URL+safeId,options).then(handleHttpErrors).then( event => {
@@ -58,7 +58,7 @@ async function getEvent () {
         const name = document.querySelector("#event-name").value
 
         const event = {id,description,capacity,date,name}
-        const options = makeOptions('PUT',event)
+        const options = makeOptions('PUT',event,true)
         try{
             await fetch(URL+id, options).then(handleHttpErrors).then( event => {
 
