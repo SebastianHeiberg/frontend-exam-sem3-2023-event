@@ -44,18 +44,19 @@ async function submitLogin(evt){
 export function login(){
     //kun admin
     if(localStorage.roles.includes('ADMIN')){
-    document.querySelector("#for-admin-event").style.display="block"        
+    document.querySelector("#for-admin-event").style.display="block"
+    document.querySelector("#allevents-link").style.display="block"                        
     }
     //kun user
     if(localStorage.roles.includes('USER')){
-        document.querySelector("#for-user-event").style.display="block"        
+        document.querySelector("#for-user-event").style.display="block"
+        document.querySelector("#allevents-link").style.display="none"                        
         }
     //altid vises
     document.querySelector("#logout-link").style.display="block"        
 
     //skal ikke vises
     document.querySelector("#signup-link").style.display="none"                
-    document.querySelector("#allevents-link").style.display="none"                
     document.querySelector("#login-link").style.display="none"                
 
 }
