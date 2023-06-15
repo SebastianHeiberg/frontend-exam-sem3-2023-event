@@ -13,9 +13,10 @@ async function addAttendee(evt){
     evt.preventDefault()    
     const username = document.querySelector("#username").value  
     const email = document.querySelector("#email").value  
-    const phoneNumber = document.querySelector("#phone").value  
+    const phoneNumber = document.querySelector("#phone").value
+    const password = document.querySelector("#password").value  
    
-    const user = {username, email, phoneNumber}
+    const user = {username, email, phoneNumber, password}
     const options = {
         method: "POST",
         headers: {

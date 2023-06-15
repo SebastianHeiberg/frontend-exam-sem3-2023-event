@@ -1,3 +1,4 @@
+import { login } from "./pages/login/login.js"
 
 export function renderTemplate(template, contentId) {
   const content = document.getElementById(contentId)
@@ -120,4 +121,13 @@ export function makeOptions(method, body, addToken) {
 
 
   return opts;
+}
+
+export function checkiflogedin(){
+  const roles = localStorage.getItem('roles');
+
+  if (roles && (roles.includes('ADMIN') || roles.includes('USER'))) {
+    login();
+  } 
+
 }

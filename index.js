@@ -1,7 +1,7 @@
 //import "https://unpkg.com/navigo"  //Will create the global Navigo object used below
 import "./navigo_EditedByLars.js"  //Will create the global Navigo, with a few changes, object used below
 //import "./navigo.min.js"  //Will create the global Navigo object used below
-
+import { checkiflogedin } from "./utils.js"
 import {
   setActiveLink, adjustForMissingHash, renderTemplate, loadHtml
 } from "./utils.js"
@@ -12,6 +12,10 @@ import { initFindEditEvent } from "./pages/findEditEvent/findEditEvent.js";
 import { initAddAttendee } from "./pages/addAttendee/addAttendee.js";
 import { initSignUpEvent } from "./pages/signupEvent/signupEvent.js";
 import { initMyEvents } from "./pages/myEvents/myEvents.js";
+import { initLogin, logout } from "./pages/login/login.js";
+
+
+checkiflogedin()
 
 window.addEventListener("load", async () => {
 
@@ -22,6 +26,7 @@ window.addEventListener("load", async () => {
   const templateAddAttendee = await loadHtml("./pages/addAttendee/addAttendee.html")
   const templateSignUpEvent = await loadHtml("./pages/signupEvent/signupEvent.html")
   const templateMyEvents = await loadHtml("./pages/myEvents/myEvents.html")
+  const templateLogin = await loadHtml("./pages/login/login.html")
   
   adjustForMissingHash()
 
@@ -60,6 +65,13 @@ window.addEventListener("load", async () => {
       "/signupEvent": (match) => {
         renderTemplate(templateSignUpEvent, "content")
         initSignUpEvent() 
+      },
+      "/login": (match) => {
+        renderTemplate(templateLogin, "content")
+        initLogin() 
+      },"/logout": () => {
+        renderTemplate(templateLogin, "content")
+        logout()
       },
       "/add-event": (match) => {
         renderTemplate(templateAddEvent, "content")

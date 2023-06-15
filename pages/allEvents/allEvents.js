@@ -10,7 +10,7 @@ export async function initAllEvents() {
 
 async function loadAllEvents() {
 
-const options = makeOptions("GET",null,true)
+const options = makeOptions("GET",null,false)
 
 const events = await fetch(URL,options).then(handleHttpErrors)
 

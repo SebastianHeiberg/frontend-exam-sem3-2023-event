@@ -1,13 +1,6 @@
 <div class="template">
     <h2>Eventpage</h2>
-  
-    <form class="form-inline ">
-        <div class="form-group mr-2">
-          <input class="form-control" id="my-username" placeholder="Enter your username">
-        </div>
-        <button class="btn btn-primary mt-2" id="btn-fetch-my-events">See your events</button>
-        <p id="status" class = "mt-3" style="font-size: large; font-family: 20px;"> </p>
-      </form> 
+    <p id="status"></p>
     <table class="table">
       <thead>
         <tr>
@@ -36,7 +29,6 @@
         <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="keep-ticket">Keep ticket</button>
          </div>
          <input readonly hidden id="event-id"/>
-         <input readonly hidden id="attendece-username"/>
        </div>
        <br />
        <p id="modal-status">&nbsp;</p>
