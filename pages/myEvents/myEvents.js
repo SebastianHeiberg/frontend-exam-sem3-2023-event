@@ -8,6 +8,7 @@ export async function initMyEvents() {
     loadMyEvents()
     document.querySelector("#table-rows").onclick = setupCancelModal
     document.querySelector("#btn-cancel-ticket").onclick = canselBooking
+    document.querySelector("#btn-submit-search").onclick = search
 
 }
 
@@ -70,6 +71,34 @@ async function canselBooking(evt){
     }catch(err){
         document.querySelector("#modal-status").innerText = err.message
     }
+}
+
+
+async function search(evt) {
+    evt.preventDefault()
+    
+    const options = makeOptions("GET",null,true)
+    const search = document.querySelector("#title").value
+
+const searchUrl = API_URL + `/attendeeEvent/${search}`
+
+try{
+const events = await fetch(searchUrl,options).then(handleHttpErrors)
+
+const tablerows = events.map(event => `
+<tr>
+    <td>${event.id}</td>
+    <td>${event.name}</td>
+    <td>${event.date.substring(0, 10)}</td>
+    <td>${event.description}</td>
+    <td><button id="btn_${event.id}" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#cancel-modal">Cancel your ticket</button></td></tr>
+</tr>`).join("")
+
+document.querySelector("#table-rows").innerHTML = sanitizeStringWithTableRows(tablerows)
+} catch (err) {
+    document.querySelector("#status").innerText = err.message
+}
+document.querySelector("#status").innerText = ""
 
 
 }
